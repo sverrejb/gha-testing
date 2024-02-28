@@ -1,0 +1,17 @@
+name: Validate XML
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  validate-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Lint XML files
+        run: |
+          sudo apt install libxml2-utils --yes
+          xmllint --noent --noout $(find . -name '*.xml')
