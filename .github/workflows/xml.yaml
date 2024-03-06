@@ -16,5 +16,4 @@ jobs:
           packages: libxml2-utils
       - name: Lint XML files
         run: |
-          sudo apt install libxml2-utils --yes
           xmllint --noent --noout $(find . -name '*.xml')
