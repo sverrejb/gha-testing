@@ -1,0 +1,39 @@
+name: Take Screenshot
+on:
+    workflow_dispatch:
+
+env:
+  DISPLAY: :99
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Hide Dock
+      run: defaults write com.apple.dock autohide -bool true && killall Dock
+
+    - name: Run and take screenshot
+      run: |
+        screencapture fullscreen.png
+
+    - name: Install screenresolution
+      run: |
+        brew install screenresolution
+
+    - name: Commit and push screenshot
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add screenshot.png
+        git commit -m "Add updated screenshot"
+        git push
+
+    - name: Upload screenshots as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: screenshot
+        path: |
+          screenshot.png
+          fullscreen.png
