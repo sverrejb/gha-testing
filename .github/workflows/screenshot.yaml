@@ -16,23 +16,24 @@ jobs:
 
     - name: Run and take screenshot
       run: |
-        screencapture fullscreen.png
+        screencapture fullscreen1.png
 
     - name: Install screenresolution
       run: |
         brew install jakehilborn/jakehilborn/displayplacer
 
     - name: List screen resolutions
-      run: displayplacer list
+      run: displayplacer "id:1 degree:90"
 
     - name: Take screenshot
-      run: screencapture fullscreen.png
+      run: screencapture fullscreen2.png
 
     - name: Commit and push screenshot
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add fullscreen.png
+        git add fullscreen1.png
+        git add fullscreen2.png
         git commit -m "Add updated screenshot"
         git push
 
@@ -41,4 +42,5 @@ jobs:
       with:
         name: screenshot
         path: |
-          fullscreen.png
+          fullscreen1.png
+          fullscreen2.png
