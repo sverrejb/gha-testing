@@ -22,7 +22,7 @@ jobs:
     - name: List screen resolutions
       run: |
        displayplacer list
-       displayplacer "degree:90"
+       displayplacer "degree:180"
 
     - name: Take screenshot
       run: screencapture fullscreen2.png
