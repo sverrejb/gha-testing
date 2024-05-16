@@ -2,9 +2,6 @@ name: Take Screenshot
 on:
     workflow_dispatch:
 
-env:
-  DISPLAY: :99
-
 jobs:
   build:
     runs-on: macos-latest
@@ -23,7 +20,9 @@ jobs:
         brew install jakehilborn/jakehilborn/displayplacer
 
     - name: List screen resolutions
-      run: displayplacer "id:1 degree:90"
+      run: |
+       displayplacer list
+       displayplacer "id:1 degree:90"
 
     - name: Take screenshot
       run: screencapture fullscreen2.png
