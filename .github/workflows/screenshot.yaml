@@ -22,7 +22,7 @@ jobs:
     - name: List screen resolutions
       run: |
        displayplacer list
-       displayplacer "id:BC511F54-1CC7-4116-80F2-60B5043E6CD2 degree:90"
+       displayplacer "id:BC511F54-1CC7-4116-80F2-60B5043E6CD2 res:1920x1080 hz:60 color_depth:7 enabled:true scaling:off origin:(0,0) degree:0"
 
     - name: Take screenshot
       run: screencapture fullscreen2.png
