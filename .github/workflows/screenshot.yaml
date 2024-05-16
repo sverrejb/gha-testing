@@ -20,10 +20,10 @@ jobs:
 
     - name: Install screenresolution
       run: |
-        brew install screenresolution
+        brew install jakehilborn/jakehilborn/displayplacer
 
     - name: List screen resolutions
-      run: screenresolution list
+      run: displayplacer list
 
     - name: Take screenshot
       run: screencapture fullscreen.png
