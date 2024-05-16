@@ -25,6 +25,9 @@ jobs:
     - name: List screen resolutions
       run: screenresolution list
 
+    - name: Take screenshot
+      run: screencapture fullscreen.png
+
     - name: Commit and push screenshot
       run: |
         git config --local user.email "action@github.com"
@@ -38,5 +41,4 @@ jobs:
       with:
         name: screenshot
         path: |
-          screenshot.png
           fullscreen.png
