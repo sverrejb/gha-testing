@@ -16,7 +16,7 @@ jobs:
         key: ${{ runner.os }}-cargo-build-target-foo-${{ hashFiles('**/Cargo.lock') }}
 
     - name: Build
-      run: cargo build --release --features selfie
+      run: cd slint && cargo build --release --features selfie
 
     
     - name: Run and take screenshot
