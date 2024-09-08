@@ -31,4 +31,4 @@ jobs:
       with:
         name: screenshot
         path: |
-          slint/fullscreen1.png
+          slint/screenshot.png
